@@ -13,9 +13,7 @@ class BuzzRule extends Rule {
 }
 
 object RuleSet {
-  def rules: List[Rule] = {
-    List( new FizzRule(), new BuzzRule() )
-  }
+  def rules = List( new FizzRule(), new BuzzRule() )
 }
 
 class FizzBuzz() {
