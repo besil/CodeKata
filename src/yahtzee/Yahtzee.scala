@@ -9,4 +9,6 @@ class Yahtzee {
   val ones = makeRule(1)
   val twos = makeRule(2)
   
+  
+  
 }
