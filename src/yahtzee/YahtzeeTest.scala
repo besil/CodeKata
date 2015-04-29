@@ -19,14 +19,13 @@ class YahtzeeTest {
   }
   
   @Test
-  def pair() {
-    assertEquals(8, yahtzee.pair(List(3,3,3,4,4)))
-  }
+  def pair() = assertEquals(8, yahtzee.pair(List(3,3,3,4,4)))
   
   @Test
-  def twopair() {
-    assertEquals(8, yahtzee.twopair(List(1,1,2,3,3)))
-  }
+  def twopair() = assertEquals(8, yahtzee.twopair(List(1,1,2,3,3)))
+  
+  @Test
+  def threekind() = assertEquals(9, yahtzee.threekind(List(3, 3, 3, 4, 5)))
   
   
 }

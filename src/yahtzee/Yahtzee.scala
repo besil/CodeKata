@@ -1,14 +1,9 @@
 package yahtzee
 
 class Yahtzee {
-//  def makeSimpleRule(n: Int): List[Int] => Int = {
-//    (l: List[Int]) => l filter{ _ == n } sum
-//  }
   def makeSimpleRule(n: Int)(l: List[Int]): Int = l filter { _ == n } sum
   
-//  val ones = (l: List[Int]) => l.filter { x => x==1 }.sum
   val ones = makeSimpleRule(1)(_)
-//  val ones = (l: List[Int]) => makeSimpleRule(1)(l)
   val twos = makeSimpleRule(2) _
   
   def pair = (l: List[Int]) => {
@@ -17,6 +12,14 @@ class Yahtzee {
    }
   }
   
-  def twopair = (l: List[Int]) => l.groupBy(x => x).filter(x => x._2.size==2).values.flatten.sum
+  def groupKind(n: Int)(l:List[Int]): Int = {
+    l.groupBy(x=>x).filter(x => x._2.size==n).values.flatten.sum
+  }
   
+//  def twopair = (l: List[Int]) => l.groupBy(x => x).filter(x => x._2.size==2).values.flatten.sum
+  def twopair = groupKind(2) _
+//  def threekind = groupKind(3) _
+  def threekind = (l: List[Int]) => {
+    l.groupBy { x => x }.filter(_._2.size==3).values.flatten.sum
+  }
 }
